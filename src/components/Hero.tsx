@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -26,14 +26,6 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                className="bg-scrutinx-purple hover:bg-scrutinx-dark text-white px-6 py-6 text-lg shadow-lg hover:shadow-xl hover:shadow-scrutinx-light/50 transform hover:-translate-y-0.5 transition-all"
-                onClick={() => {
-                  document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Join the Waitlist <ArrowRight className="ml-2 h-5 w-5 animate-pulse" />
-              </Button>
               <Button 
                 variant="outline"
                 className="border-scrutinx-purple text-scrutinx-purple hover:bg-scrutinx-light px-6 py-6 text-lg transition-all hover:shadow-md"

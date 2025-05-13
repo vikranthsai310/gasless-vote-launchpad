@@ -6,7 +6,6 @@ import About from "@/components/About";
 import Features from "@/components/Features";
 import Roadmap from "@/components/Roadmap";
 import Team from "@/components/Team";
-import Waitlist from "@/components/Waitlist";
 import Footer from "@/components/Footer";
 import { ArrowUp } from "lucide-react";
 
@@ -38,7 +37,6 @@ const Index = () => {
         <Features />
         <Roadmap />
         <Team />
-        <Waitlist />
       </main>
       <Footer />
       

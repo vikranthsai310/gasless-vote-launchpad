@@ -55,15 +55,6 @@ const Header = () => {
           <a href="#team" className="text-gray-700 hover:text-scrutinx-purple transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-scrutinx-purple after:scale-x-0 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">
             Team
           </a>
-          <Button 
-            className="bg-scrutinx-purple hover:bg-scrutinx-dark text-white transition-colors shadow-lg hover:shadow-xl hover:shadow-scrutinx-light/50 transform hover:-translate-y-0.5"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            Join Waitlist
-          </Button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -107,16 +98,6 @@ const Header = () => {
               >
                 Team
               </a>
-              <Button 
-                className="bg-scrutinx-purple hover:bg-scrutinx-dark text-white w-full transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-              >
-                Join Waitlist
-              </Button>
             </nav>
           </div>
         )}
