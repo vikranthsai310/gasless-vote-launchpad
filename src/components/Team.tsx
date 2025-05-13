@@ -12,9 +12,9 @@ const Team = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
           {/* Team Member 1 */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="bg-white rounded-lg shadow-md overflow-hidden hover-lift" data-staggered>
             <div className="p-1 bg-scrutinx-light">
               <img 
                 src="/placeholder.svg" 
@@ -43,7 +43,7 @@ const Team = () => {
           </div>
           
           {/* Team Member 2 */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="bg-white rounded-lg shadow-md overflow-hidden hover-lift" data-staggered>
             <div className="p-1 bg-scrutinx-light">
               <img 
                 src="/placeholder.svg" 
@@ -72,7 +72,7 @@ const Team = () => {
           </div>
           
           {/* Team Member 3 */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="bg-white rounded-lg shadow-md overflow-hidden hover-lift" data-staggered>
             <div className="p-1 bg-scrutinx-light">
               <img 
                 src="/placeholder.svg" 

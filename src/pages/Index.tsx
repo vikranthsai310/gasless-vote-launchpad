@@ -8,7 +8,7 @@ import Roadmap from "@/components/Roadmap";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 import { ArrowUp } from "lucide-react";
-import { setupSectionAnimations } from "@/lib/animationObserver";
+import { setupSectionAnimations, setupParallaxEffect } from "@/lib/animationObserver";
 
 const Index = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -29,6 +29,9 @@ const Index = () => {
     
     // Set up section animations
     setupSectionAnimations();
+    
+    // Set up parallax effect for background elements
+    setupParallaxEffect();
     
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -90,6 +93,11 @@ const Index = () => {
           </button>
         </div>
       </div>
+      
+      {/* Background decorative elements with parallax effect */}
+      <div className="fixed top-1/4 right-0 w-64 h-64 bg-scrutinx-light/10 rounded-full blur-3xl -z-10" data-parallax="0.05"></div>
+      <div className="fixed bottom-1/3 left-0 w-96 h-96 bg-scrutinx-purple/5 rounded-full blur-3xl -z-10" data-parallax="0.08"></div>
+      <div className="fixed top-3/4 right-1/4 w-48 h-48 bg-scrutinx-light/10 rounded-full blur-3xl -z-10" data-parallax="0.12"></div>
     </div>
   );
 };
