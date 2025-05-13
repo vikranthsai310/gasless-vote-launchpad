@@ -41,7 +41,6 @@ const Header = () => {
             Team
           </a>
           <Button 
-            href="#waitlist" 
             className="bg-scrutinx-purple hover:bg-scrutinx-dark text-white transition-colors"
             onClick={(e) => {
               e.preventDefault();
