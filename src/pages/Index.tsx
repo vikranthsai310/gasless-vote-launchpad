@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -8,7 +7,7 @@ import Roadmap from "@/components/Roadmap";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 import { ArrowUp } from "lucide-react";
-import { setupSectionAnimations, setupParallaxEffect } from "@/lib/animationObserver";
+import { initializeAnimations } from "@/lib/animationObserver";
 
 const Index = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -27,11 +26,8 @@ const Index = () => {
     
     window.addEventListener("scroll", handleScroll);
     
-    // Set up section animations
-    setupSectionAnimations();
-    
-    // Set up parallax effect for background elements
-    setupParallaxEffect();
+    // Initialize all animations
+    initializeAnimations();
     
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
