@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img 
-                src="/lovable-uploads/575b1710-0aa9-4c4d-8282-393b41857c58.png" 
+                src="./ScrutinX.png" 
                 alt="ScrutinX Logo" 
                 className="h-10 w-auto" 
               />

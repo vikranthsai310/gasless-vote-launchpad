@@ -1,4 +1,3 @@
-
 import { Check } from "lucide-react";
 
 const Roadmap = () => {
@@ -14,7 +13,12 @@ const Roadmap = () => {
         
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-scrutinx-purple"></div>
+            {/* Animated timeline line */}
+            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5">
+              <div className="absolute inset-0 bg-gradient-to-b from-scrutinx-purple via-scrutinx-light to-scrutinx-purple animate-gradient-flow bg-[length:100%_200%]"></div>
+              <div className="absolute inset-0 bg-scrutinx-purple/20"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-scrutinx-purple/30 to-transparent animate-pulse"></div>
+            </div>
             
             <div className="space-y-16">
               {/* Phase 1 */}

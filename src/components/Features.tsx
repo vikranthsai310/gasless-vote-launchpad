@@ -1,4 +1,3 @@
-
 import { Check, BarChart, Users, Clock } from "lucide-react";
 
 const Features = () => {
@@ -18,9 +17,10 @@ const Features = () => {
             <div className="w-full md:w-1/2">
               <div className="bg-scrutinx-light p-6 rounded-lg">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/CreatePoll.png" 
                   alt="Create Poll Interface" 
-                  className="w-full h-auto rounded"
+                  className="w-full h-auto rounded max-w-md mx-auto"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -57,9 +57,10 @@ const Features = () => {
             <div className="w-full md:w-1/2">
               <div className="bg-scrutinx-light p-6 rounded-lg">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/Meta.jpg" 
                   alt="Meta-Transaction Voting Flow" 
-                  className="w-full h-auto rounded"
+                  className="w-full h-auto rounded max-w-md mx-auto"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -96,9 +97,10 @@ const Features = () => {
             <div className="w-full md:w-1/2">
               <div className="bg-scrutinx-light p-6 rounded-lg">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/Results.jpg" 
                   alt="Analytics Dashboard" 
-                  className="w-full h-auto rounded"
+                  className="w-full h-auto rounded max-w-md mx-auto"
+                  loading="lazy"
                 />
               </div>
             </div>

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -11,10 +10,15 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-28 pb-16 md:pt-32 md:pb-24 relative overflow-hidden" data-stagger>
+    <section className="min-h-screen flex items-center pt-28 pb-16 md:pt-32 md:pb-24 relative overflow-hidden" data-stagger>
       {/* Background decoration with enhanced gradients */}
-      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-bl from-scrutinx-light/40 to-transparent rounded-bl-full opacity-80"></div>
-      <div className="absolute bottom-0 left-0 -z-10 w-1/3 h-2/3 bg-gradient-to-tr from-scrutinx-light/30 to-transparent rounded-tr-full opacity-60"></div>
+      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-bl from-scrutinx-purple/20 via-scrutinx-light/40 to-transparent rounded-bl-full opacity-80"></div>
+      <div className="absolute bottom-0 left-0 -z-10 w-1/3 h-2/3 bg-gradient-to-tr from-scrutinx-purple/30 via-scrutinx-light/30 to-transparent rounded-tr-full opacity-60"></div>
+      
+      {/* Additional purple gradient elements */}
+      <div className="absolute top-0 left-0 -z-10 w-full h-full bg-gradient-to-br from-scrutinx-purple/5 to-transparent"></div>
+      <div className="absolute top-1/4 right-1/4 -z-10 w-64 h-64 bg-gradient-to-br from-scrutinx-purple/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-1/4 -z-10 w-64 h-64 bg-gradient-to-tl from-scrutinx-purple/10 to-transparent rounded-full blur-3xl"></div>
       
       {/* Animated decoration elements */}
       <div className="absolute top-1/3 left-1/4 -z-10 w-16 h-16 rounded-full bg-scrutinx-purple/10 animate-pulse"></div>
@@ -51,9 +55,10 @@ const Hero = () => {
             <div className="relative">
               <div className="bg-gradient-to-br from-scrutinx-light to-white p-6 rounded-lg shadow-lg transform hover:rotate-0 transition-all duration-500 hover:scale-102 hover:shadow-xl">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/Hero.jpg" 
                   alt="ScrutinX Interface Mockup" 
-                  className="w-full h-auto rounded"
+                  className="w-full h-full rounded max-w-lg mx-auto"
+                  loading="lazy"
                 />
               </div>
               

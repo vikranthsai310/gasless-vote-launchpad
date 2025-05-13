@@ -1,4 +1,3 @@
-
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 const Team = () => {
@@ -19,7 +18,8 @@ const Team = () => {
               <img 
                 src="/placeholder.svg" 
                 alt="Team Member" 
-                className="w-full h-64 object-cover"
+                className="w-full h-48 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="p-6">
@@ -48,7 +48,8 @@ const Team = () => {
               <img 
                 src="/placeholder.svg" 
                 alt="Team Member" 
-                className="w-full h-64 object-cover"
+                className="w-full h-48 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="p-6">
@@ -77,7 +78,8 @@ const Team = () => {
               <img 
                 src="/placeholder.svg" 
                 alt="Team Member" 
-                className="w-full h-64 object-cover"
+                className="w-full h-48 object-cover"
+                loading="lazy"
               />
             </div>
             <div className="p-6">

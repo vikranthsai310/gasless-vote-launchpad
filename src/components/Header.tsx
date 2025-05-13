@@ -56,16 +56,16 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 py-4 transition-all duration-500 ${
-        scrolled ? "bg-white/95 shadow-md backdrop-blur-sm" : "bg-white/80"
+        scrolled ? "bg-white/95 shadow-md backdrop-blur-sm" : "bg-purple/80"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center">
           <a href="#" className="flex items-center gap-2 group">
             <img 
-              src="/lovable-uploads/575b1710-0aa9-4c4d-8282-393b41857c58.png" 
+              src="./ScrutinX.png" 
               alt="ScrutinX Logo" 
-              className="h-10 w-auto transition-transform duration-300 group-hover:scale-110" 
+              className="h-10 w-auto transition-transform duration-300 group-hover:scale-110 d-inline" 
             />
             <span className="hidden md:inline-block text-2xl font-bold bg-gradient-to-r from-scrutinx-dark to-scrutinx-purple bg-clip-text text-transparent">
               ScrutinX
