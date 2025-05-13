@@ -1,4 +1,3 @@
-
 // Animation observer for section animations with enhanced options
 export const setupSectionAnimations = () => {
   // Check if IntersectionObserver is supported
@@ -54,7 +53,7 @@ export const setupParallaxEffect = () => {
       parallaxElements.forEach(element => {
         const speed = element.getAttribute('data-parallax') || '0.1';
         const yPos = -(scrollY * parseFloat(speed));
-        element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        (element as HTMLElement).style.transform = `translate3d(0, ${yPos}px, 0)`;
       });
     });
   }
