@@ -8,16 +8,28 @@ import Roadmap from "@/components/Roadmap";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 import { ArrowUp } from "lucide-react";
+import { setupSectionAnimations } from "@/lib/animationObserver";
 
 const Index = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Show button after scrolling down
       setShowScrollButton(window.scrollY > 500);
+      
+      // Calculate scroll progress for the progress indicator
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
     };
     
     window.addEventListener("scroll", handleScroll);
+    
+    // Set up section animations
+    setupSectionAnimations();
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -40,16 +52,44 @@ const Index = () => {
       </main>
       <Footer />
       
-      {/* Scroll to top button */}
-      {showScrollButton && (
-        <button 
-          onClick={scrollToTop} 
-          className="fixed bottom-8 right-8 p-3 bg-scrutinx-purple text-white rounded-full shadow-lg hover:bg-scrutinx-dark transition-colors z-50 animate-fade-in"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp size={20} />
-        </button>
-      )}
+      {/* Enhanced Scroll to top button with progress ring */}
+      <div className={`fixed bottom-8 right-8 z-50 transition-all duration-500 ${showScrollButton ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
+        <div className="relative">
+          {/* Progress circle */}
+          <svg className="w-12 h-12 -rotate-90" viewBox="0 0 100 100">
+            <circle
+              className="text-gray-200"
+              strokeWidth="5"
+              stroke="currentColor"
+              fill="transparent"
+              r="42"
+              cx="50"
+              cy="50"
+            />
+            <circle
+              className="text-scrutinx-purple transition-all duration-300"
+              strokeWidth="5"
+              strokeDasharray={264}
+              strokeDashoffset={264 - (264 * scrollProgress) / 100}
+              strokeLinecap="round"
+              stroke="currentColor"
+              fill="transparent"
+              r="42"
+              cx="50"
+              cy="50"
+            />
+          </svg>
+          
+          {/* Button */}
+          <button
+            onClick={scrollToTop}
+            className="absolute top-0 left-0 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="h-5 w-5 text-scrutinx-purple" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

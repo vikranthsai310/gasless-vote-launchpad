@@ -6,11 +6,26 @@ import { Menu, X } from "lucide-react";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
-  // Handle scroll effect for header
+  // Enhanced scroll effect for header
   useEffect(() => {
     const handleScroll = () => {
+      // Update header style based on scroll position
       setScrolled(window.scrollY > 10);
+      
+      // Update active section based on scroll position
+      const sections = ['about', 'features', 'roadmap', 'team'];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 200 && rect.bottom >= 200;
+        }
+        return false;
+      }) || 'hero';
+      
+      setActiveSection(currentSection);
     };
     
     window.addEventListener("scroll", handleScroll);
@@ -21,10 +36,27 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const isActive = (section) => activeSection === section;
+
+  // Navigation link component
+  const NavLink = ({ href, label, mobile = false }) => (
+    <a 
+      href={href} 
+      className={`${mobile ? 'pl-2 border-l-2' : 'relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-scrutinx-purple after:transition-transform'} 
+        ${isActive(href.slice(1)) ? 
+          mobile ? 'text-scrutinx-purple border-scrutinx-purple' : 'text-scrutinx-purple after:scale-x-100' : 
+          mobile ? 'text-gray-700 border-transparent hover:border-scrutinx-purple/50' : 'text-gray-700 after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 hover:after:origin-bottom-left'} 
+        transition-all duration-300 hover:text-scrutinx-purple`}
+      onClick={() => mobile && setMobileMenuOpen(false)}
+    >
+      {label}
+    </a>
+  );
+
   return (
     <header 
-      className={`fixed top-0 left-0 w-full backdrop-blur-sm z-50 py-4 transition-all duration-300 ${
-        scrolled ? "bg-white/95 shadow-md" : "bg-white/80"
+      className={`fixed top-0 left-0 w-full z-50 py-4 transition-all duration-500 ${
+        scrolled ? "bg-white/95 shadow-md backdrop-blur-sm" : "bg-white/80"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -43,61 +75,29 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#about" className="text-gray-700 hover:text-scrutinx-purple transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-scrutinx-purple after:scale-x-0 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">
-            About
-          </a>
-          <a href="#features" className="text-gray-700 hover:text-scrutinx-purple transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-scrutinx-purple after:scale-x-0 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">
-            Features
-          </a>
-          <a href="#roadmap" className="text-gray-700 hover:text-scrutinx-purple transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-scrutinx-purple after:scale-x-0 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">
-            Roadmap
-          </a>
-          <a href="#team" className="text-gray-700 hover:text-scrutinx-purple transition-colors relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-scrutinx-purple after:scale-x-0 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left">
-            Team
-          </a>
+          <NavLink href="#about" label="About" />
+          <NavLink href="#features" label="Features" />
+          <NavLink href="#roadmap" label="Roadmap" />
+          <NavLink href="#team" label="Team" />
         </nav>
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-gray-700"
+          className="md:hidden text-gray-700 p-2 transition-transform active:scale-90"
           onClick={toggleMobileMenu}
           aria-label="Toggle Menu"
         >
-          {mobileMenuOpen ? <X className="text-scrutinx-purple" /> : <Menu />}
+          {mobileMenuOpen ? <X className="text-scrutinx-purple h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu with enhanced animation */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg py-4 px-4 z-50 animate-fade-in">
-            <nav className="flex flex-col space-y-4">
-              <a 
-                href="#about" 
-                className="text-gray-700 hover:text-scrutinx-purple transition-colors pl-2 border-l-2 border-transparent hover:border-scrutinx-purple"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </a>
-              <a 
-                href="#features" 
-                className="text-gray-700 hover:text-scrutinx-purple transition-colors pl-2 border-l-2 border-transparent hover:border-scrutinx-purple"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Features
-              </a>
-              <a 
-                href="#roadmap" 
-                className="text-gray-700 hover:text-scrutinx-purple transition-colors pl-2 border-l-2 border-transparent hover:border-scrutinx-purple"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Roadmap
-              </a>
-              <a 
-                href="#team" 
-                className="text-gray-700 hover:text-scrutinx-purple transition-colors pl-2 border-l-2 border-transparent hover:border-scrutinx-purple"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Team
-              </a>
+          <div className="md:hidden fixed top-16 left-0 right-0 bg-white shadow-lg py-4 px-4 z-50 animate-fade-in">
+            <nav className="flex flex-col space-y-5 py-2">
+              <NavLink href="#about" label="About" mobile={true} />
+              <NavLink href="#features" label="Features" mobile={true} />
+              <NavLink href="#roadmap" label="Roadmap" mobile={true} />
+              <NavLink href="#team" label="Team" mobile={true} />
             </nav>
           </div>
         )}
