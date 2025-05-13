@@ -67,7 +67,7 @@ const Roadmap = () => {
                 </div>
                 <div className="md:w-1/2 order-1 md:order-2 md:pl-12 ml-12 md:ml-0" data-animation-type="slide-left">
                   <div className="md:text-right">
-                    <h3 className="text-xl font-bold mb-2 text-purple-600 whitespace-nowrap text-right">Final Release – Q3/Q4 2025 (August–September)</h3>
+                    <h3 className="text-xl font-bold mb-2 text-purple-600 whitespace-nowrap text-right">Final </h3>
                     <p className="text-gray-600 mb-4 font-medium text-right">Major Launch Milestones</p>
                     <ul className="space-y-3 pl-8" data-stagger>
                       <li className="flex justify-start gap-2" data-staggered data-animation-type="fade-left">

@@ -73,7 +73,7 @@ const Team = () => {
           </div>
           
           {/* Team Member 3 */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden hover-lift" data-staggered>
+          {/* <div className="bg-white rounded-lg shadow-md overflow-hidden hover-lift" data-staggered>
             <div className="p-1 bg-scrutinx-light">
               <img 
                 src="/placeholder.svg" 
@@ -100,7 +100,7 @@ const Team = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
